@@ -1,9 +1,17 @@
 const express = require('express')
 const morgan = require('morgan')
+const cors = require('cors')
+
 
 const app = express()
 
 app.use(express.json())
+app.use(cors())
+
+// make express show static content, the page index.html and the JavaScript, etc., 
+//it fetches, we need a built-in middleware from express called static.
+
+app.use(express.static('build'))
 
 app.use(morgan(function (tokens, req, res) {
     let bodyString = ''
@@ -23,7 +31,7 @@ app.use(morgan(function (tokens, req, res) {
 let persons = [
 { 
     "id": 1,
-    "name": "Arto Hellas", 
+    "name": "Hunnibuns is the cutest", 
     "number": "040-123456"
     },
     { 
@@ -40,7 +48,17 @@ let persons = [
     "id": 4,
     "name": "Mary Poppendieck", 
     "number": "39-23-6423122"
-    }
+    },
+    { 
+        "id": 5,
+        "name": "build and deploy scripts working", 
+        "number": "39-23-6423122"
+    },
+    { 
+        "id": 6,
+        "name": "dev config server working", 
+        "number": "39-23-6423122"
+    },
 ]
 const getCurrentDate = ()=>{
     let date = new Date();
