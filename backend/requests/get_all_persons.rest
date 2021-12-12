@@ -1,13 +1,30 @@
 GET  http://localhost:3001/api/persons
 
 ###
-DELETE http://localhost:3001/api/persons/2
+GET http://localhost:3001/api/persons/61b5f6eb753709355c87c9f3
 
+###
+DELETE http://localhost:3001/api/persons/61b5f663fde403b5afc0cd07
+Content-Type: application/json
+
+{
+    "name": "YongQin",
+    "number": "96399259",
+    "id": "61b5f663fde403b5afc0cd07"
+}
 ###
 POST http://localhost:3001/api/persons/ HTTP/1.1
 content-type: application/json
 
 {
-    "name": "hello",
-    "number": "9999999999"
+    "name": "ni",
+    "number": "9639999999"
+}
+
+###
+PUT http://localhost:3001/api/persons/61b5f6eb753709355c87c9f3
+content-type: application/json
+
+{
+    "number": "22"
 }
